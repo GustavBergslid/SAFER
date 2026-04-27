@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html lang='sv'>
+<head>
+<meta charset='UTF-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+<title>SAFER – Frågegenerator</title>
+<link href='https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap' rel='stylesheet'>
+<style>
+body { margin:0; font-family:'Poppins',sans-serif; background:#f2f2f2; text-align:center; }
+header { background:#004429; color:#fff; padding:25px; font-size:32px; font-weight:600; }
+.container { max-width:700px; margin:40px auto; background:#fff; padding:30px; border-radius:18px; box-shadow:0 4px 10px rgba(0,0,0,0.15); }
+button { background:#007A3D; color:#fff; padding:14px 30px; border:none; border-radius:30px; font-size:20px; cursor:pointer; }
+button:hover { background:#00994F; }
+#question-box { margin-top:20px; padding:20px; background:#eaffe6; border-left:6px solid #007A3D; border-radius:10px; font-size:20px; min-height:70px; }
+.category { font-weight:600; color:#004429; margin-bottom:10px; }
+</style>
+</head>
+<body>
+<header>SAFER</header>
+<div class='container'>
+<button onclick='generateQuestion()'>Generera SAFER-fråga</button>
+<div id='question-box'>Tryck på knappen för att börja.</div>
+</div>
+<script>
+const questions = [
+ {cat:'S – Stanna upp och ifrågasätt osäkert beteende', q:'När stannade du senast upp för att ifrågasätta en situation som kändes osäker?'},
+ {cat:'S – Stanna upp och ifrågasätt osäkert beteende', q:'Vilka tecken får dig att reagera och stoppa arbetet?'},
+ {cat:'A – Anpassa din hastighet', q:'När märker du att tempot börjar bli för högt för att vara säkert?'},
+ {cat:'A – Anpassa din hastighet', q:'I vilka situationer är det störst risk att du börjar springa eller stressa?'},
+ {cat:'F – Följ regler, fullständig och rätt skyddsutrustning', q:'Hur säkerställer du att du använder all skyddsutrustning korrekt?'},
+ {cat:'F – Följ regler, fullständig och rätt skyddsutrustning', q:'När är det mest frestande att hoppa över något moment med PPE?'},
+ {cat:'E – En sak i taget', q:'När är det mest frestande att använda mobilen när du går?'},
+ {cat:'E – En sak i taget', q:'Hur påminner du dig själv att fokusera på en sak åt gången i riskfyllda miljöer?'},
+ {cat:'R – Räcke', q:'När är det vanligast att man glömmer att hålla i räcket?'},
+ {cat:'R – Räcke', q:'Hur påverkar det risken för fallolyckor om räcket inte används?'}
+];
+function generateQuestion(){
+ const i=Math.floor(Math.random()*questions.length);
+ document.getElementById('question-box').innerHTML = `<div class='category'>${questions[i].cat}</div>${questions[i].q}`;
+}
+</script>
+</body>
+</html>
